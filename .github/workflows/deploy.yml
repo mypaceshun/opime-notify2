@@ -28,7 +28,7 @@ jobs:
       - name: Install poetry
         uses: snok/install-poetry@v1
         with:
-          poetry-version: "1.8.2"
+          version: "1.8.3"
           virtualenvs-create: true
           virtualenvs-in-project: true
 
@@ -42,4 +42,4 @@ jobs:
         run: |
           poetry install --with ci
           zip -r package.zip src/
-          poetry run awscli almmbda update-function-code --function-name opimeNotify --zip-file fileb://package.zip --publish
+          poetry run aws almmbda update-function-code --function-name opimeNotify --zip-file fileb://package.zip --publish

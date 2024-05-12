@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   deploy:
-    runs-on: ubuntu-lateset
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: read

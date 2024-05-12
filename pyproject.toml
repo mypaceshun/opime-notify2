@@ -20,12 +20,6 @@ click = "^8.1.7"
 ruff = "^0.4.4"
 mypy = "^1.10.0"
 
-[tool.poetry.group.ci]
-optional = true
-
-[tool.poetry.group.ci.dependencies]
-awscli = "^1.32.103"
-
 [tool.poetry.scripts]
 opime-notify = "opime_notify2.bin.cmd:cli"
 

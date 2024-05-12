@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "opime-notify2"
+version = "0.1.0"
+description = "Opime Notification tool"
+license = "MIT"
+authors = ["KAWAI Shun <mypaceshun@gmail.com>"]
+maintainers = ["KAWAI Shun <mypaceshun@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/mypaceshun/opime-notify2"
+package-mode = true
+packages = [
+  { include = "opime_notify2", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.4"
+mypy = "^1.10.0"
+
+[tool.poetry.scripts]
+opime-notify = "opime_notify2.bin.cmd:cli"
+
+[tool.poe.tasks.lint]
+sequence = [
+  { cmd = "ruff check src/" },
+  { cmd = "mypy src/" }
+]
+ignore_fail = "return_non_zero"
+
+[tool.poe.tasks.format]
+sequence = [
+  { cmd = "ruff check --fix --exit-zero src/" },
+  { cmd = "ruff format src/" },
+  "lint"
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+fixable = ["F"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

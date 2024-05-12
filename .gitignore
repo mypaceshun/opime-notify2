@@ -1,0 +1,14 @@
+# Python
+
+*.py[co]
+__pycache__
+dist/
+
+# Python venv
+.venv
+
+# mypy
+.mypy_cache
+
+# ruff
+.ruff_cache
